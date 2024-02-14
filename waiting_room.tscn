@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://df3xnet0hjaa2"]
+
+[ext_resource type="PackedScene" path="res://waitingroom.glb" id="1_rmiln"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_if7s5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1c85k"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_bn8uu"]
+sky_material = SubResource("ProceduralSkyMaterial_1c85k")
+
+[sub_resource type="Environment" id="Environment_eekoe"]
+background_mode = 2
+sky = SubResource("Sky_bn8uu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s2ply"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eekoe")
+
+[node name="waitingroom" parent="." instance=ExtResource("1_rmiln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0577245, 0, 0.748873)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89589, 6.53489)
+script = ExtResource("2_if7s5")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+fov = 110.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.681302, 0.029129)
+shape = SubResource("CapsuleShape3D_s2ply")
