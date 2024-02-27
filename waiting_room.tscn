@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://df3xnet0hjaa2"]
 
-[ext_resource type="PackedScene" path="res://waitingroom.glb" id="1_rmiln"]
+[ext_resource type="PackedScene" uid="uid://dfsvloa8njwka" path="res://waitingroom.glb" id="1_rmiln"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_if7s5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1c85k"]

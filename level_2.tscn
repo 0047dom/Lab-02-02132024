@@ -1,0 +1,171 @@
+[gd_scene load_steps=17 format=3 uid="uid://cqho2ytvraevj"]
+
+[ext_resource type="PackedScene" uid="uid://dfhc87w1cvwju" path="res://level2.glb" id="1_u0qlh"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_flh26"]
+[ext_resource type="PackedScene" uid="uid://dl87sopasppeu" path="res://karambit_low_poly.glb" id="3_ryjmy"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="4_mudck"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dy3df"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_17srs"]
+sky_material = SubResource("ProceduralSkyMaterial_dy3df")
+
+[sub_resource type="Environment" id="Environment_wa17o"]
+background_mode = 2
+sky = SubResource("Sky_17srs")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw6kf"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906331, 0.229738, 0, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jtv8g"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oksi3"]
+resource_name = "level2_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_lw6kf"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jtv8g")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ealco"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xk1l7"]
+
+[sub_resource type="Animation" id="Animation_8bh14"]
+resource_name = "knife_spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.057, 1.991, -0.130564), Vector3(0.057, 2.15, -0.131), Vector3(0.057, 1.991, -0.131)]
+}
+
+[sub_resource type="Animation" id="Animation_40lx8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.057, 1.991, -0.130564)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ahwsv"]
+_data = {
+"RESET": SubResource("Animation_40lx8"),
+"knife_spin": SubResource("Animation_8bh14")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tj37r"]
+
+[node name="level2" instance=ExtResource("1_u0qlh")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_wa17o")
+
+[node name="backwall" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="backwall2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 0.1, 0, 2, 9.97575)
+visible = false
+mesh = SubResource("ArrayMesh_oksi3")
+skeleton = NodePath("")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="backwall2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="backwall2/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_ealco")
+
+[node name="rightwall" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="leftwall" parent="." index="5"]
+metadata/_edit_lock_ = true
+
+[node name="interior" parent="." index="6"]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" parent="interior" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="interior/StaticBody3D" index="0"]
+visible = false
+
+[node name="ceiling" parent="." index="7"]
+metadata/_edit_lock_ = true
+
+[node name="holder" parent="." index="9"]
+transform = Transform3D(0.197955, 0, 0, 0, 1.36066, 0, 0, 0, 0.197955, 0.00284027, 1.75285, 2.08165e-12)
+
+[node name="holder2" parent="." index="10"]
+transform = Transform3D(0.197955, 0, 0, 0, 1.36066, 0, 0, 0, 0.197955, 0.00284027, 1.75285, 2.08165e-12)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89589, 8.15558)
+script = ExtResource("2_flh26")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" index="0"]
+fov = 110.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.681302, 0.029129)
+shape = SubResource("CapsuleShape3D_xk1l7")
+
+[node name="Sketchfab_Scene" parent="." index="12" instance=ExtResource("3_ryjmy")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0.057, 1.991, -0.130564)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sketchfab_Scene" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_ahwsv")
+}
+autoplay = "knife_spin"
+script = ExtResource("4_mudck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene" index="2"]
+transform = Transform3D(7, -1.20339e-21, 1.42071e-22, 1.78803e-21, 7, -1.42071e-22, -1.17791e-21, 1.17791e-21, 7, -0.78401, 1.09202, 1.58586)
+shape = SubResource("BoxShape3D_tj37r")

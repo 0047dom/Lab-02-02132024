@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://f4tvdfugcvt2"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_mbrdq"]
+[ext_resource type="PackedScene" uid="uid://b0isdggiwslv8" path="res://Arms_001.glb" id="2_dy2e8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5qpeq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_tkdcp"]
+sky_material = SubResource("ProceduralSkyMaterial_5qpeq")
+
+[sub_resource type="Environment" id="Environment_vq4a1"]
+background_mode = 2
+sky = SubResource("Sky_tkdcp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_axa40"]
+resource_name = "idle_dom"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.428624, -0.718832, -0.0852766), Vector3(-0.429, -0.713178, -0.085)]
+}
+
+[sub_resource type="Animation" id="Animation_2j1re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.428624, 1.22613, 8.03185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjeo4"]
+_data = {
+"RESET": SubResource("Animation_2j1re"),
+"idle_dom": SubResource("Animation_axa40")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yxqyd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m0sud"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bhddp"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vq4a1")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89589, 8.16269)
+script = ExtResource("1_mbrdq")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000681877, -0.0116043, 0.00369453)
+fov = 110.0
+
+[node name="Arms_001" parent="CharacterBody3D" instance=ExtResource("2_dy2e8")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 1.04821e-09, 0.999928, -0.0119901, 8.74165e-08, -0.0119901, -0.999928, -0.428624, 1.22613, 8.03185)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Arms_001"]
+libraries = {
+"": SubResource("AnimationLibrary_rjeo4")
+}
+autoplay = "idle_dom"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, -0.681302, 0.029129)
+shape = SubResource("CapsuleShape3D_yxqyd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(11.4626, 0, 0, 0, 1.00243, 0, 0, 0, 15.1762, -0.00069809, 0.0355158, 0.0109119)
+mesh = SubResource("PlaneMesh_m0sud")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bhddp")

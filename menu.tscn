@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d12ii7v4kprdj"]
+[gd_scene load_steps=9 format=3 uid="uid://d12ii7v4kprdj"]
 
 [ext_resource type="Theme" uid="uid://bhkngg2qmn171" path="res://button.tres" id="1_7mgck"]
 [ext_resource type="Texture2D" uid="uid://c53fesrtniwvy" path="res://Screenshot 2024-02-13 at 3.23.06 PM.png" id="1_xf5s3"]
 [ext_resource type="Script" path="res://menu.gd" id="2_dwj2n"]
 [ext_resource type="FontFile" uid="uid://dbe18dpok0ynf" path="res://Emeritus-Trial-Display.otf" id="5_20p1y"]
+[ext_resource type="FontFile" uid="uid://e5aiectgk40l" path="res://ABCSocialCondensed-Book.otf" id="6_ka3et"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gvco3"]
 
@@ -88,11 +89,31 @@ theme_override_fonts/font = ExtResource("5_20p1y")
 theme_override_font_sizes/font_size = 24
 text = "quit"
 flat = true
-alignment = 2
+alignment = 0
+icon_alignment = 2
+vertical_icon_alignment = 2
+script = SubResource("GDScript_y8275")
+
+[node name="guide" type="Button" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+mouse_default_cursor_shape = 3
+shortcut_context = NodePath("../../..")
+theme = ExtResource("1_7mgck")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ka3et")
+theme_override_font_sizes/font_size = 24
+text = "guide"
+flat = true
+alignment = 0
 icon_alignment = 2
 vertical_icon_alignment = 2
 script = SubResource("GDScript_y8275")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/guide" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/guide" to="." method="_on_quit_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://52teeaclf783"]
+
+[ext_resource type="Theme" uid="uid://ct0cgiqo0ejo6" path="res://button2.tres" id="1_r7gjp"]
+[ext_resource type="Script" path="res://back.gd" id="2_qeeev"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 1165.0
+offset_bottom = 658.0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 566.0
+offset_right = 200.0
+offset_bottom = 630.0
+
+[node name="back" type="Button" parent="Container"]
+layout_mode = 2
+theme = ExtResource("1_r7gjp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "back"
+script = ExtResource("2_qeeev")
